@@ -1,0 +1,35 @@
+<h1 mat-dialog-title> Add Review </h1>
+
+
+
+<div style="margin-left: 75px;">
+
+    <mat-form-field appearance="outline" style="width: 450px;   max-width: 500px;    "  floatLabel="always" hintLabel="Max 1000 characters" >
+        <mat-label style="font-size: 17px;">Review</mat-label>
+        <textarea matInput required [(ngModel)] = "review" name = "review" [maxLength]="1000" rows="7" cols="40" placeholder="text" required></textarea>
+    </mat-form-field>
+    <br>    <br>
+    <br>
+
+
+    <div style="margin-left: auto; margin-right: auto;">
+      <mat-form-field appearance="outline" floatLabel="always" >
+          <mat-label style="font-size: 17px;"> Rate </mat-label>
+            <mat-select   [(ngModel)] = "rating" name = "rating" required>
+    
+            <mat-option *ngFor="let rating of rating_options" [value]="rating">
+              {{rating}}  
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </div>
+
+</div>   
+
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClickNo()">No Thanks</button>
+  <button mat-button (click)="addReview()" cdkFocusInitial>Yes</button>
+</div>

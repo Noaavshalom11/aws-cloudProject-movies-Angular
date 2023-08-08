@@ -1,0 +1,46 @@
+<h1 mat-dialog-title> Add Metadata </h1>
+
+
+
+<div style="margin-left: 75px;">
+
+    <mat-form-field appearance="outline" style="width: 450px;   max-width: 500px;    "  floatLabel="always" hintLabel="Max 500 characters" >
+        <mat-label style="font-size: 17px;">Description</mat-label>
+        <textarea matInput required [(ngModel)] = "description" name = "description" [maxLength]="500" rows="7" cols="40" placeholder="text" required></textarea>
+    </mat-form-field>
+    <br>    <br>
+    <br>
+
+
+    <div style="margin-left: auto; margin-right: auto;">
+      <mat-form-field appearance="outline" floatLabel="always" >
+          <mat-label style="font-size: 17px;"> Genre </mat-label>
+            <mat-select   [(ngModel)] = "genre" name = "genre" required>
+    
+            <mat-option *ngFor="let genre of genres" [value]="genre">
+              {{genre}}  
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always" style="width: 450px; font-size: 13px;">
+            <mat-label>Trailer URL</mat-label>
+            <input matInput
+            [(ngModel)]= trailer_url
+            name = trailer_url
+            required
+            >
+        </mat-form-field>       
+    </div>
+
+</div>   
+
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClickNo()">No Thanks</button>
+  <button mat-button (click)="addData()" cdkFocusInitial>Yes</button>
+</div>

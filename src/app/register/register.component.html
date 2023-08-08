@@ -1,0 +1,114 @@
+<div style="width: 100%; height: 100%; background-color: #dbdbdb;">
+    <div style="margin-left: auto; margin-right: auto;
+                width: 650px; background-color: #00ffff00; 
+                top: 70px; 
+                position: relative;">
+
+        <mat-card class="card-container" >
+            <h1 style="margin-top: 30px;
+                       font-weight: bold; 
+                       color: #000000; 
+                       font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                       REGISTRATION
+            </h1>
+            <br>
+      
+            <button style="left: 500px; position: absolute; width:80px;height:80px; 
+            background-size:100% 100%; margin-top: 30px; margin-left: 8px; 
+            background-color: #a0cef3; 
+            background-image: url({{ProfileImage}});" [style.border]="'solid 1px ' + color_confidence" mat-fab aria-label="Example icon button with a delete icon" (click)="InputImage.click()">
+      
+                <input hidden  name="uploadImage" type="file" #InputImage id="uploadImage" (change)="uploadImage($event)" accept="image/*"  />
+
+            </button>
+
+            
+
+            <form #registerForm = "ngForm" (ngSubmit) = "onSubmit()" >
+                <div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px;">
+                            <mat-label>Full Name</mat-label>
+                            <input matInput
+                            [(ngModel)]= name
+                            name = name
+                            (ngModelChange)="clearError()"
+                            required
+                            >
+                        </mat-form-field>       
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px;">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="name@gmail.com"
+                            [(ngModel)]= email
+                            name = email
+                            (ngModelChange)="clearError()"
+                            type="email"
+                            required>
+                        </mat-form-field>
+                    
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px;">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="at least 6 characters"
+                            [(ngModel)]= password
+                            name = password
+                            (ngModelChange)="clearError()"
+                            type="password"
+                            required >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px; ">
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput placeholder="repeat password"
+                            [(ngModel)]= confirmedPassword
+                            name = confirmedPassword
+                            required
+                            type="password"
+                            (ngModelChange)="clearError()"
+                            >
+                        </mat-form-field>             
+                    </div>
+                    <br>                    
+                    <div>
+                        
+                    <button [disabled] ="!registerForm.form.valid" type = "submit"  style="width: 300px; height: 50px; bottom: 20px;" mat-flat-button color="warn" >REGISTER</button>
+                    </div>
+
+                </div>
+
+            </form>
+<div style="margin-left: 20px; text-align: center;  top: -50px;" *ngIf = "spinnerStatus">
+  <mat-spinner diameter="25"> 
+  </mat-spinner>
+</div>
+            <span *ngIf = "errorMessage" style="color:#c70808;
+            font-size: 13px; 
+            text-align: center; 
+            float: left; 
+            height: 15px; 
+            margin-left: 10px;" >
+        <mat-icon >cancel</mat-icon>
+
+        <span style="font-size: 13px;">{{errorMessage}}</span>
+    </span>
+    <br>           
+
+
+            <mat-divider style="width: 85%; margin-left: 50px;"></mat-divider><br>
+
+            <span>Have an account?<a href="/login" style="color: #e7912e;font-weight: 900;"> Press to Login</a></span>
+            <br>                    
+  
+            <br>                    
+
+        </mat-card> 
+    </div>
+</div>
+
+
+
+    

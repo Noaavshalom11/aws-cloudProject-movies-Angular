@@ -1,0 +1,73 @@
+<div style="width: 100%; height: 100%;
+            background-color: #dbdbdb;">
+
+    <div style="margin-left: auto; margin-right: auto;
+                width: 650px; 
+                background-color: #00ffff00; 
+                top: 70px; 
+                position: relative;">
+
+        <!-- LOGO -->       
+
+        <!-- LOGIN FORM -->       
+
+        <mat-card class="card-container">
+            <h1 style="margin-top: 30px; 
+                    font-weight: bold; 
+                    color: #000000; 
+                    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    
+                    LOGIN
+            </h1>
+            <br>
+
+            <form #loginForm = "ngForm" (ngSubmit) = "onSubmit()" >
+                <div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px;">
+                            <mat-label>Email</mat-label>
+                            <input matInput
+                            [(ngModel)]= "email"
+                            name = "email"
+                            (change)="clearError()"
+                            required >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" floatLabel="always" style="width: 300px; font-size: 13px;">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="xxxxxxxx"
+                            [(ngModel)]= "password"
+                            (change)="clearError()"
+                            name = "password"
+                            type="password"
+                            required >
+                        </mat-form-field>
+                        <br>               
+                    </div>
+                    <br>           
+                    <br>           
+
+                <button  [disabled] ="!loginForm.form.valid" type = "submit" mat-button color="primary" style="width: 300px; height: 50px; bottom: 20px;" mat-flat-button color="warn" >Login</button>
+                </div>
+                
+            </form>
+            <span *ngIf = "ErrorMessage" style="color:#c70808;
+            font-size: 13px;
+            text-align: center;
+            float: left;
+            height: 15px;">
+            <mat-icon >cancel</mat-icon>
+            <span style="font-size: 13px;">{{ErrorMessage}}</span>
+
+
+</span>
+<br>           
+
+            <mat-divider style="width: 85%; margin-left: 50px; margin-top: 10px;"></mat-divider><br>
+            <span>Don't have an account yet?<a href="/register" style="color: #e7912e;font-weight: 900;"> Press to Register</a></span>
+            <br>
+          
+        </mat-card> 
+    </div>
+</div>

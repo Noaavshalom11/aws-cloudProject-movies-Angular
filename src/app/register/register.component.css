@@ -1,0 +1,19 @@
+.card-container{
+    width: 650px;
+    height: 590px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 1px;
+    position: relative;
+    background-color: #ffffff;
+    top: 70px;
+    border-top: 15px solid #f08000;
+
+}
+
+
+.mat-icon {
+    vertical-align:bottom;
+}
